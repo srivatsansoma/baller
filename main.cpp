@@ -10,8 +10,6 @@
 #include "unistd.h"
 #include "vector_ops.h"
 
-
-
 std::vector<ball> random_balls(uint32_t num_balls, float w, float h, float max_velcomp, float e) {
     std::vector<ball> balls = {};
     srand(time(NULL));
@@ -23,7 +21,7 @@ std::vector<ball> random_balls(uint32_t num_balls, float w, float h, float max_v
         pos.x *= w/RAND_MAX;
         pos.y *= h/RAND_MAX;
 
-        balls.push_back(ball(velocity, pos, 10, 1.5, e));
+        balls.push_back(ball(velocity, pos, 10, 3, e));
     }
 
     return balls;
@@ -35,7 +33,7 @@ int main() {
 
     std::vector<ball> balls = {};
     std::vector<vec2<float>> forces = {};
-    balls = random_balls(10000, 1400, 1000, 0, 0.999);
+    balls = random_balls(2000, 1400, 1000, 0, 0.99);
     balls.push_back(ball({10,0}, {100,100}, 10, 10, 1));
 
     //std::vector<ball*> ball_pointers = {};
